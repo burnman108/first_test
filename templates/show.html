@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+	<div class="page-header">
+	
+		<div class="list-group">
+			<a class="list-group-item active">
+			    <h4 class="list-group-item-heading">WH-qx-list</h4>
+			</a>
+	  
+	 	 </div>
+		 
+	</div>
+</div>
+
+<div class="container">
+  		<table class=" table table-hover">
+  			<thead>
+  				<th class="active">日期</th>
+  				<th class="active">时间</th>
+  				<th class="active">气温</th>
+  				<th class="active">风冷温_热指数</th>
+  				<th class="active">露点</th>
+				<th class="active">湿度</th>
+				<th class="active">气压</th>
+				<th class="active">能见度</th>
+				<th class="active">风向</th>
+				<th class="active">风速</th>
+				<th class="active">瞬时风速</th>
+				<th class="active">Precip</th>
+				<th class="active">活动</th>
+				<th class="active">状况</th>
+  			</thead>
+  			<tbody>
+  				{% if wh_list %}
+  				{% for wh in wh_list %}
+				<tr>
+				  <td class="active">{{wh.date}}</td>
+				  <td class="active">{{wh.time}}</td>
+				  <td class="info">{{wh.Temp}}</td>
+				  <td class="info">{{wh.WindChill_HeatIndex}}</td>
+				  <td class="info">{{wh.DewPoint}}</td>
+				  <td class="info">{{wh.Humidity}}</td>
+				  <td class="info">{{wh.Pressure}}</td>
+				  <td class="info">{{wh.Visibility}}</td>
+				  <td class="info">{{wh.WindDir}}</td>
+				  <td class="info">{{wh.WindSpeed}}</td>
+				  <td class="info">{{wh.GustSpeed}}</td>
+				  <td class="info">{{wh.Precip}}</td>
+				  <td class="info">{{wh.Events}}</td>
+				  <td class="info">{{wh.Condition}}</td>
+				</tr>
+				 {% endfor %}
+				{% endif %}
+  			</tbody>
+
+		</table>
+</div>
+{% endblock %}
